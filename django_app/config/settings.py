@@ -102,10 +102,22 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
+
     'storages',
 
     'member',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.permissions.IsAdminUser',
+    ),
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
+    'PAGE_SIZE': 10
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
