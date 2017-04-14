@@ -33,7 +33,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class MyUser(AbstractBaseUser):
     email = models.EmailField(verbose_name='email', max_length=50, unique=True)
 
     is_active = models.BooleanField(default=True)
