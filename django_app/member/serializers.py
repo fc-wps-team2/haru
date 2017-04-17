@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model, authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers, exceptions
 from rest_framework.authtoken.models import Token
+from rest_framework.validators import UniqueValidator
 
 User = get_user_model()
 
@@ -29,6 +30,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class SignUpSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(
+        validators=[
+            UniqueValidator(
+                queryset=User.objects.all()
+            )
+        ]
+    )
     password = serializers.CharField(
         style={'input_type': 'password'},
         write_only=True,
