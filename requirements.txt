@@ -5,6 +5,7 @@ botocore==1.5.38
 cement==2.8.2
 colorama==0.3.7
 Django==1.11
+django-cors-headers==2.0.2
 django-storages==1.5.2
 djangorestframework==3.6.2
 docker-py==1.7.2
