@@ -19,6 +19,7 @@ class PostFilter(django_filters.rest_framework.FilterSet):
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_class = PostFilter
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
