@@ -18,13 +18,14 @@ from django.contrib import admin
 from rest_framework import routers
 
 from member import views as user_views
+from post import views as post_view
 
 router = routers.DefaultRouter()
 router.register(r'user', user_views.UserViewSet, 'user')
 router.register(r'signup', user_views.SignUpViewSet, 'signup')
 router.register(r'login', user_views.LogInViewSet, 'login')
 router.register(r'logout', user_views.LogOutViewSet, 'logout')
-# router.register(r'post', post_view.PostViewSet, 'post')
+router.register(r'post', post_view.PostViewSet, 'post')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

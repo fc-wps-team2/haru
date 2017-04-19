@@ -98,7 +98,6 @@ CORS_ORIGIN_WHITELIST = (
     config['whitelist']['oneeight'],
     config['whitelist']['oneeighty']
 )
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -113,9 +112,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
 
+    'corsheaders',
     'storages',
 
     'member',
+    'post',
 ]
 
 REST_FRAMEWORK = {
