@@ -90,6 +90,14 @@ SECRET_KEY = config['django']['secret_key']
 
 ALLOWED_HOSTS = config['django']['allowed_hosts']
 
+CORS_ORIGIN_WHITELIST = (
+    config['whitelist']['haru'],
+    config['whitelist']['localhost'],
+    config['whitelist']['localeight'],
+    config['whitelist']['localeighty'],
+    config['whitelist']['oneeight'],
+    config['whitelist']['oneeighty']
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -103,6 +111,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
+    'corsheaders',
     'storages',
 
     'member',
@@ -116,14 +125,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.permissions.IsAdminUser',
     ),
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
     'PAGE_SIZE': 10
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
