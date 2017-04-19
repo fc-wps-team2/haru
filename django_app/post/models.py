@@ -6,11 +6,15 @@ class Post(models.Model):
     EMOTION_HAPPY = 1
     EMOTION_BAD = 2
     EMOTION_USUALLY = 3
+    EMOTION_ANNOYED = 4
+    EMOTION_ANGER = 5
 
     EMOTION_STATUS = (
         (EMOTION_HAPPY, 'Happy'),
         (EMOTION_BAD, 'Bad'),
         (EMOTION_USUALLY, 'Usually'),
+        (EMOTION_ANNOYED, 'Annoyed'),
+        (EMOTION_ANGER, 'Anger'),
 
     )
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
