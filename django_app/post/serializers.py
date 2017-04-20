@@ -6,5 +6,5 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('id', 'url', 'author', 'title', 'content', 'image', 'status')
+        fields = ('id', 'url', 'day', 'author', 'title', 'content', 'image', 'status')
         ordering = ('id',)
