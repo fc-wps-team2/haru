@@ -22,6 +22,7 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='post', blank=True)
     day = models.DateField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=EMOTION_STATUS)
 
     # 제목에 숫자를 넣었을때 문자열로 바꿔서 저장.
