@@ -7,4 +7,8 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'url', 'day', 'author', 'title', 'content', 'image', 'status', 'created_date')
-        ordering = ('id',)
+
+        # id 정렬방법 : Descending
+        ordering = (
+            '-id',
+        )
